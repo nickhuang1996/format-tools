@@ -1,8 +1,10 @@
 from scripts.Form.MainForm import *
 from scripts.Form.VideoScreenShotForm import VideoScreenShotForm
+from scripts.Form.ImageCutForm import ImageCutForm
 from scripts.transform_tools.video2image import video2image
 from scripts.transform_tools.image2video import image2video
 from scripts.transform_tools.image2gif import image2gif
+from scripts.transform_tools.imagecut import imagecut
 from scripts.Button.ButtonSub import *
 from scripts.utils.ProcessBar import ProcessBar
 from scripts.utils.set_cwd import set_cwd
@@ -16,6 +18,7 @@ class SelectForm(MainForm):
         self.fps = 25
         """VideoScreenShotForm"""
         self.VideoScreenShotForm = None
+        self.ImageCutForm = None
 
         """ProcessBar"""
         self.ProcessBar = ProcessBar()
@@ -38,6 +41,10 @@ class SelectForm(MainForm):
 
         """btn VideoScreenShot"""
         self.btn_videoscreenshot = Button_videoscreenshot(self).get_btn()
+
+        """btn ImageCut"""
+        self.btn_imagecut = Button_imagecut(self).get_btn()
+
         """layout"""
         layout = QVBoxLayout()
         layout.addWidget(self.btn_images2gif)
@@ -45,6 +52,7 @@ class SelectForm(MainForm):
         layout.addWidget(self.btn_videos2images)
         layout.addWidget(self.btn_images2video)
         layout.addWidget(self.btn_videoscreenshot)
+        layout.addWidget(self.btn_imagecut)
         layout.addWidget(self.ProcessBar.get_pbar_text())
         layout.addWidget(self.ProcessBar.get_pbar())
         self.setLayout(layout)
@@ -55,6 +63,7 @@ class SelectForm(MainForm):
         self.btn_videos2images.clicked.connect(self.slot_btn_videos2images)
         self.btn_images2video.clicked.connect(self.slot_btn_images2video)
         self.btn_videoscreenshot.clicked.connect(self.slot_btn_videoscreenshot)
+        self.btn_imagecut.clicked.connect(self.slot_btn_imagecut)
 
     """transform images to gif"""
     def slot_btn_images2gif(self):
@@ -275,6 +284,13 @@ class SelectForm(MainForm):
         self.VideoScreenShotForm.show()
         print("VideoScreenShotForm Start...\n")
         return
+
+    def slot_btn_imagecut(self):
+        self.ImageCutForm = ImageCutForm()
+        self.ImageCutForm.show()
+        print("ImageCutForm Start...\n")
+        return
+
 
 
 

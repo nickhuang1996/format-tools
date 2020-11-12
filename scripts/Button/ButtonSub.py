@@ -42,3 +42,10 @@ class Button_videoscreenshot(ButtonBase):
         self.btn.setObjectName("btn_VideoScreenShot")
         self.btn.setText("videoscreenshot")
         return self.btn
+
+class Button_imagecut(ButtonBase):
+
+    def get_btn(self):
+        self.btn.setObjectName("btn_imagecut")
+        self.btn.setText("imagecut")
+        return self.btn

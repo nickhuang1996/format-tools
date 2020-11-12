@@ -9,6 +9,8 @@ def set_cwd():
     images_folder['video2images'] = cwd
     images_folder['videos2images'] = cwd
     images_folder['images2video'] = cwd
+    images_folder['imagecutload'] = cwd
+    images_folder['imagecutsave'] = cwd
 
     gif_folder = {}
     gif_folder['images2gif'] = cwd
